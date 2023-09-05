@@ -1,5 +1,6 @@
 import argparse
 import os
+import matplotlib.pyplot
 import pymongo
 import requests
 from datetime import datetime, timedelta
@@ -137,6 +138,7 @@ def build_result(days_to_filter):
 
     commits_data = list(mongo_collection.find(query))
 
+    ##### My first solution prints result to terminal #####
     commit_count_per_user = {}
     for commit in commits_data:
         commit_author = commit["commit"]["author"]["name"]
@@ -146,11 +148,24 @@ def build_result(days_to_filter):
             commit_count_per_user[commit_author] = 1
 
     # Sort the results by commit count in descending order
-    sorted_results = sorted(commit_count_per_user.items(), key=lambda x: x[1], reverse=True)
+    sorted_results = dict(sorted(commit_count_per_user.items(), key=lambda x: x[1], reverse=True))
 
     print("Commit counts per user:")
-    for user, count in sorted_results:
-        print(f"{user}: {count} commits")
+    for user in sorted_results:
+        print(f"{user}: {sorted_results[user]} commits")
+    ##############################
+
+    #### UPDATED solution #####
+    # Create a chart using matplotlib
+    matplotlib.pyplot.figure(figsize=(10, 6))
+    matplotlib.pyplot.bar(sorted_results.keys(), sorted_results.values(), color='green')
+    matplotlib.pyplot.xlabel('User')
+    matplotlib.pyplot.ylabel('Commit Count')
+    matplotlib.pyplot.title(f'Commit Counts per User (Last {days_to_filter} days)')
+    matplotlib.pyplot.xticks(rotation=90, fontsize=9)
+    matplotlib.pyplot.tight_layout()
+    matplotlib.pyplot.show()
+    ###########################
 
     mongodb_close(mongo_client)
 

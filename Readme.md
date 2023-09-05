@@ -26,9 +26,8 @@ To get started, follow these steps:
 - Use `--dry-run` flag to prevent requests to GitHub. It builds result from MongoDB. Data should be presented in MongoDB.
 - To load data and build result use command similar to this one `python productivity.py -r https://github.com/torvalds/linux`
 - To show commits only for the last N days use flag `-d NUMBER_OF_DAYS`. Example: `python productivity.py -r https://github.com/torvalds/linux --days-to-filter 30`. Default value is 10.
+- UPDATE: added graphic using matplotlib library
 
 ## Roadmap
 - Add exceptions for requests
 - Add script argument -all which build result for all repos
-- Build graphs with matplotlib lib
-   
