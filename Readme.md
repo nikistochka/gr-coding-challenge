@@ -2,10 +2,10 @@
 This repository is designed to calculate the productivity of each user based on the number of commits made in the last N days. It is only assumption for the practice and should not be used in a real world.
 
 ## Repository Structure
-`.env`: Configuration file for MongoDB.
-`docker-compose.yaml`: Docker Compose file to run MongoDB and MongoExpress.
-`./mongodb_data`: This folder is created when you run docker-compose and is used to store MongoDB data.
-`requirements.txt`: Contains all the dependencies required for Python.
+- `.env`: Configuration file for MongoDB.
+- `docker-compose.yaml`: Docker Compose file to run MongoDB and MongoExpress.
+- `./mongodb_data`: This folder is created when you run docker-compose and is used to store MongoDB data.
+- `requirements.txt`: Contains all the dependencies required for Python.
 
 ## Installation
 To get started, follow these steps:
