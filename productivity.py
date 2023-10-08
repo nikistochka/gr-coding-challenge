@@ -138,7 +138,7 @@ def build_result(days_to_filter):
 
     commits_data = list(mongo_collection.find(query))
 
-    ##### My first solution prints result to terminal #####
+    # Print result to terminal
     commit_count_per_user = {}
     for commit in commits_data:
         commit_author = commit["commit"]["author"]["name"]
@@ -153,9 +153,7 @@ def build_result(days_to_filter):
     print("Commit counts per user:")
     for user in sorted_results:
         print(f"{user}: {sorted_results[user]} commits")
-    ##############################
 
-    #### UPDATED solution #####
     # Create a chart using matplotlib
     matplotlib.pyplot.figure(figsize=(10, 6))
     matplotlib.pyplot.bar(sorted_results.keys(), sorted_results.values(), color='green')
@@ -165,7 +163,6 @@ def build_result(days_to_filter):
     matplotlib.pyplot.xticks(rotation=90, fontsize=9)
     matplotlib.pyplot.tight_layout()
     matplotlib.pyplot.show()
-    ###########################
 
     mongodb_close(mongo_client)
 

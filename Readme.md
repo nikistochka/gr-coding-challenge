@@ -1,4 +1,6 @@
 # Overview
+NOTE: I received this test assignment before the interview with G*****h company. Please read Task.md to get it.
+
 This repository is designed to calculate the productivity of each user based on the number of commits made in the last N days. It is only assumption for the practice and should not be used in a real world.
 
 ## Repository Structure
@@ -30,4 +32,5 @@ To get started, follow these steps:
 
 ## Roadmap
 - Add exceptions for requests
+- Build charts with X axis as week and Y axis as commits by user
 - Add script argument -all which build result for all repos
